@@ -8,3 +8,13 @@ $ docker compose up -d
 $ docker container start dsa
 $ docker exec -it dsa /bin/bash
 ```
+
+### Programming Languages Used
+- Java
+- Go
+- Javascript & NodeJS
+- PHP
+- Rust
+- Python
+- C++
+- swift
