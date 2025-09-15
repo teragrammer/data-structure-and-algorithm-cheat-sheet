@@ -1,0 +1,8 @@
+services:
+  app:
+    build: .
+    container_name: dsa
+    tty: true
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace
