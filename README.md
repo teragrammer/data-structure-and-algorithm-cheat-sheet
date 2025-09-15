@@ -3,7 +3,6 @@ This repository contains a collection of Data Structures and Algorithms (DSA) pr
 It is designed for learning, practicing, and testing various algorithms and data structures with clear implementations and example use cases.
 
 ### Getting Started & Usage
-Data Structure and Algorithms (DSA) Practice and Projects
 - Clone the repository
 ```
 $ git clone https://github.com/teragrammer/data-structure-and-algorithm-cheat-sheet.git
