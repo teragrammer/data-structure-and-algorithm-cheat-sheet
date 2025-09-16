@@ -33,7 +33,7 @@ func sortedSquarredArrayMethod2(arr []int) []int {
 	var leftPointer = 0
 	var rightPointer = len(arr) - 1
 
-	for i :=0; i < len(arr); i++ {
+	for i := 0; i < len(arr); i++ {
 		var leftSquared = int(math.Pow(float64(arr[leftPointer]), 2))
 		var rightSquared = int(math.Pow(float64(arr[rightPointer]), 2))
 
