@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  * Given an array, 
@@ -8,23 +9,24 @@ import java.util.Arrays;
 
 public class Q2 {
     public static void main(String[] args) {
-        int[] array = {1, 2, 3, 4, 5};
-        int k = 1;
+        ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+        int k = 3;
 
-        System.out.println(Arrays.toString(rotateArrayMethod1(array, k)));
+        System.out.println(rotateArrayMethod1(array, k));
     }
 
-    static int[] rotateArrayMethod1(int[] array, int k) {
-        if (array.length == k || array.length == 0) {
+    static ArrayList<Integer> rotateArrayMethod1(ArrayList<Integer> array, int k) {
+        if (array.size() == k || array.size() == 0) {
             return array;
         }
 
-        int counter = 0;
-        for (int i = 0; i < array.length; i++) {
+        int counter = 1;
+        for (int i = 0; i < array.size(); i++) {
             if (counter <= k) {
-                // TODO
-                int lastItem = array[array.length - 1];
-                array[0] = lastItem;
+                int lastIndex = array.size() - 1;
+                int lastItem = array.get(lastIndex);
+                array.remove(lastIndex);
+                array.add(0, lastItem);
                 counter++;
             }
         }
