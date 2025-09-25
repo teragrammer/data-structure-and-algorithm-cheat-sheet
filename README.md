@@ -24,7 +24,7 @@ $ docker exec -it dsa /bin/bash
 - Rust
 - Python
 - C++
-- swift
+- Swift
 
 ### Hire Me
 ```
