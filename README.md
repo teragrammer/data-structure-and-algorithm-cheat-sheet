@@ -31,6 +31,14 @@ $ docker exec -it dsa /bin/bash
 ```Bash
 $ clear && javac File.java && java File && rm ./File.class
 ```
+- Go
+```
+$ clear && go run File.go
+```
+- Python
+```
+$ clear && python[n] File.py
+```
 
 ### Hire Me
 ```
