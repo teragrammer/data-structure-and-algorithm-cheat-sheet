@@ -26,6 +26,12 @@ $ docker exec -it dsa /bin/bash
 - C++
 - Swift
 
+### Simple Compile & Building
+- Java
+```Bash
+$ clear && javac File.java && java File && rm ./File.class
+```
+
 ### Hire Me
 ```
 If you like this project and need help with development, customization, or integration, feel free to reach out!
