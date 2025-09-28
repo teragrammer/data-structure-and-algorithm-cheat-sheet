@@ -1,3 +1,9 @@
+"""
+Given a sorted array of n integers and a target value, 
+determine if the target exists in the array. 
+If target exists in the array, print the index of it.
+"""
+
 def search(array, target):
     if len(array) == 0:
         return -1
