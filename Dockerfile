@@ -1,14 +1,23 @@
 # Use the latest Ubuntu base image
-FROM ubuntu:latest
+FROM ubuntu:24.04
 
 # Set environment variables to non-interactive
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Update package list and install dependencies for multiple languages
 RUN apt-get update && apt-get install -y \
-    software-properties-common curl wget gnupg2 lsb-release apt-transport-https ca-certificates libncurses6 \
+    software-properties-common curl wget gnupg2 lsb-release apt-transport-https ca-certificates libncurses6
+
+# Install R
+# Add CRAN repository for the latest R version
+RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -c | awk '{print $2}')-cran40/" | tee -a /etc/apt/sources.list
+# Add the key for the CRAN repository
+RUN curl -fsSL https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# Update the package list and install R
+RUN apt-get update && apt-get install -y r-base
+
 # Install Python
-    && apt-get install -y python3 python3-pip python3-venv \
+RUN apt-get install -y python3 python3-pip python3-venv \
 # Install PHP
     && add-apt-repository ppa:ondrej/php && \
     apt install php8.4 php8.4-cli php8.4-common php8.4-fpm php8.4-mysql php8.4-xml php8.4-gd php8.4-mbstring php8.4-zip php8.4-bcmath  php8.4-curl -y \
@@ -26,10 +35,7 @@ RUN apt-get update && apt-get install -y \
 # Install Golang
     && curl -OL https://go.dev/dl/go1.25.0.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go1.25.0.linux-amd64.tar.gz && \
-    rm go1.25.0.linux-amd64.tar.gz \
-# Clean up
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    rm go1.25.0.linux-amd64.tar.gz
 
 # Install GCC
 RUN add-apt-repository ppa:ubuntu-toolchain-r/ppa -y && \
@@ -50,6 +56,9 @@ RUN echo 'export PATH="$HOME/.local/share/swiftly/bin:$PATH"' >> ~/.bashrc
 RUN echo 'export PATH="$PATH:/usr/local/go/bin"' >> ~/.bashrc
 RUN echo 'export PATH="/root/.cargo/bin:${PATH}"' >> ~/.bashrc
 RUN . ~/.bashrc
+
+# Clean Up
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Default command
 CMD ["bash"]
