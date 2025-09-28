@@ -25,6 +25,8 @@ $ docker exec -it dsa /bin/bash
 - Python
 - C++
 - Swift
+- R
+- C# (.NET 8)
 
 ### Simple Compile & Building
 - Java
@@ -38,6 +40,14 @@ $ clear && go run File.go
 - Python
 ```
 $ clear && python[n] File.py
+```
+- C# (.NET 8)
+```
+$ clear && dotnet run
+```
+- R
+```
+$ clear && Rscript File.R
 ```
 
 ### Hire Me
