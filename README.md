@@ -43,6 +43,7 @@ $ clear && python[n] File.py
 ```
 - C# (.NET 8)
 ```
+$ dotnet new console # create new project
 $ clear && dotnet run
 ```
 - R
