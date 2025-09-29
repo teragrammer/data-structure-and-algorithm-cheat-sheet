@@ -15,6 +15,29 @@ sorted_squared_method_1 <- function(array) {
     return(sort(new_array))
 }
 
+sorted_squared_method_2 <- function(array) {
+    new_array = c(1:length(array))
+
+    pointer_left = 1
+    pointer_right = length(array)
+
+    for (i in seq_along(array)) {
+        squared_left = array[pointer_left] ** 2
+        squared_right = array[pointer_right] ** 2
+
+        if (squared_left < squared_right) {
+            new_array[i] = squared_left
+            pointer_left = pointer_left + 1
+        } else {
+            new_array[i] = squared_right
+            pointer_right = pointer_right - 1
+        }
+    }
+
+    return(new_array)
+}
+
 array = c(5, 4, 3, 2, 1, 0)
 
 print(sorted_squared_method_1(array))
+print(sorted_squared_method_2(array))
