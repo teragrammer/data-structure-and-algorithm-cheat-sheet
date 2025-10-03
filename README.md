@@ -27,6 +27,7 @@ $ docker exec -it dsa /bin/bash
 - Swift
 - R
 - C# (.NET 8)
+- Kotlin
 
 ### Simple Compile & Building
 - Java
@@ -49,6 +50,11 @@ $ clear && dotnet run
 - R
 ```
 $ clear && Rscript File.R
+```
+- Kotlin
+```
+$ kotlinc File.kt -include-runtime -d File.jar
+$ java -jar File.jar
 ```
 
 ### Hire Me

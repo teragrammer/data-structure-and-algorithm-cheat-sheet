@@ -52,6 +52,11 @@ RUN apt-get update && apt-get install -y dotnet-sdk-8.0
 # Install Rust using rustup
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
+# Install Kotlin
+RUN curl -s https://get.sdkman.io | bash
+RUN source "$HOME/.sdkman/bin/sdkman-init.sh"
+RUN sdk install kotlin
+
 RUN echo 'export PATH="$HOME/.local/share/swiftly/bin:$PATH"' >> ~/.bashrc
 RUN echo 'export PATH="$PATH:/usr/local/go/bin"' >> ~/.bashrc
 RUN echo 'export PATH="/root/.cargo/bin:${PATH}"' >> ~/.bashrc
