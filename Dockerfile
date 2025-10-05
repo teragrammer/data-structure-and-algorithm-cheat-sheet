@@ -53,9 +53,18 @@ RUN apt-get update && apt-get install -y dotnet-sdk-8.0
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # Install Kotlin
-RUN curl -s https://get.sdkman.io | bash
-RUN source "$HOME/.sdkman/bin/sdkman-init.sh"
-RUN sdk install kotlin
+RUN wget -q https://github.com/JetBrains/kotlin/releases/download/v2.2.20/kotlin-compiler-2.2.20.zip \
+    && unzip kotlin-compiler-2.2.20.zip -d /opt \
+    && rm kotlin-compiler-2.2.20.zip \
+    && ln -s /opt/kotlinc/bin/kotlinc /usr/local/bin/kotlinc \
+    && ln -s /opt/kotlinc/bin/kotlin /usr/local/bin/kotlin
+
+# Install Dart
+RUN wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub \
+  | gpg  --dearmor -o /usr/share/keyrings/dart.gpg
+RUN echo 'deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main' \
+  | tee /etc/apt/sources.list.d/dart_stable.list
+RUN apt-get update && apt-get install dart
 
 RUN echo 'export PATH="$HOME/.local/share/swiftly/bin:$PATH"' >> ~/.bashrc
 RUN echo 'export PATH="$PATH:/usr/local/go/bin"' >> ~/.bashrc
