@@ -28,6 +28,7 @@ $ docker exec -it dsa /bin/bash
 - R
 - C# (.NET 8)
 - Kotlin
+- Dart
 
 ### Simple Compile & Building
 - Java
@@ -55,6 +56,11 @@ $ clear && Rscript File.R
 ```
 $ kotlinc File.kt -include-runtime -d File.jar
 $ java -jar File.jar
+```
+- Dart
+```
+$ dart run File.dart
+$ dart compile exe File.dart
 ```
 
 ### Hire Me
