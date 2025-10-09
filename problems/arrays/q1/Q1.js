@@ -14,7 +14,7 @@ function sortedSquarredArrayMethod1(array) {
     newArray[i] = array[i] ** 2
   }
 
-  return newArray.sort(function (a, b) {return a - b})
+  return bubbleSortAlgorithm(newArray)
 }
 
 
@@ -40,5 +40,23 @@ function sortedSquarredArrayMethod2(array) {
   return newArray
 }
 
-console.log(sortedSquarredArrayMethod1([5, 4, 3, 2, 1, 0]))
-console.log(sortedSquarredArrayMethod2([5, 4, 3, 2, 1, 0]))
+function bubbleSortAlgorithm(array) {
+  const size = array.length
+
+  for (let i = 0; i < size - 1; i++) {
+    for (let j = 0; j < size - i - 1; j++) {
+      if (array[j] > array[j + 1]) {
+        const temp = array[j]
+        array[j] = array[j + 1]
+        array[j + 1] = temp
+      }
+    }
+  }
+
+  return array
+}
+
+const array = [5, 4, 3, 2, 1, 0]
+
+console.log(sortedSquarredArrayMethod1(array))
+console.log(sortedSquarredArrayMethod2(array))
