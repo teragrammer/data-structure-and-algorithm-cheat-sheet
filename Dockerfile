@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Update package list and install dependencies for multiple languages
 RUN apt-get update && apt-get install -y \
-    software-properties-common curl wget gnupg2 lsb-release apt-transport-https ca-certificates libncurses6
+    software-properties-common curl wget nano gnupg2 lsb-release apt-transport-https ca-certificates libncurses6
 
 # Install R
 # Add CRAN repository for the latest R version
