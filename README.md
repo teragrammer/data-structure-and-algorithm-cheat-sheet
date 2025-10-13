@@ -44,6 +44,10 @@ $ clear && go run File.go
 $ clear && python[n] File.py
 ```
 - C# (.NET 8)
+If unable to generate new project check one of this:
+- curl https://api.nuget.org/v3/index.json
+- nano /etc/resolv.conf > nameserver 8.8.8.8
+- dotnet nuget locals all --clear
 ```
 $ dotnet new console # create new project
 $ clear && dotnet run
