@@ -1,5 +1,12 @@
 import 'dart:math';
 
+// Sorted Squared Array - You are given an array of 
+// Integers in which each subsequent value is not 
+// less than the previous value. Write a function 
+// that takes this array as an input and returns a 
+// new array with the squares of each number sorted 
+// in ascending order.
+
 List<int> sortedSquaredMethod1(List<int> array) {
     List<int> newArray = List.filled(array.length, 0);
 
@@ -8,9 +15,23 @@ List<int> sortedSquaredMethod1(List<int> array) {
         newArray[i] = (pow(base, 2)).toInt();
     }
 
-    // TODO
-    // sort
-    return newArray;
+    return bubbleSortAlgorithm(newArray);
+}
+
+List<int> bubbleSortAlgorithm(List<int> array) {
+    int size = array.length;
+
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (array[j] > array[j + 1]) {
+                int temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+    }
+
+    return array;
 }
 
 void main() {
