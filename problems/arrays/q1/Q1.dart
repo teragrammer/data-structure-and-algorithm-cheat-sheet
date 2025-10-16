@@ -18,6 +18,28 @@ List<int> sortedSquaredMethod1(List<int> array) {
     return bubbleSortAlgorithm(newArray);
 }
 
+List<int> sortedSquaredMethod2(List<int> array) {
+    List<int> newArray = List.filled(array.length, 0);
+
+    int leftPointer = 0;
+    int rightPointer = array.length - 1;
+
+    for (int i = 0; i < array.length; i++) {
+        int leftSquared = (pow(array[leftPointer], 2)).toInt();
+        int rightSquared = (pow(array[rightPointer], 2)).toInt();
+
+        if (leftSquared < rightSquared) {
+            newArray[i] = leftSquared;
+            leftPointer++;
+        } else {
+            newArray[i] = rightSquared;
+            rightPointer--;
+        }
+    }
+
+    return newArray;
+}
+
 List<int> bubbleSortAlgorithm(List<int> array) {
     int size = array.length;
 
@@ -38,4 +60,5 @@ void main() {
     List<int> array = [5, 4, 3, 2, 1, 0];
 
     print(sortedSquaredMethod1(array));
+    print(sortedSquaredMethod2(array));
 }
