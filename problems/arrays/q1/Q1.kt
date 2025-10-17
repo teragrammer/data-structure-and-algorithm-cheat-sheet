@@ -11,6 +11,7 @@ fun main() {
     val array = arrayOf<Int>(5, 4, 3, 2, 1, 0);
 
     println(sortedSquaredMethod1(array).joinToString());
+    println(sortedSquaredMethod2(array).joinToString());
 }
 
 fun sortedSquaredMethod1(array: Array<Int>): Array<Int> {
@@ -22,6 +23,28 @@ fun sortedSquaredMethod1(array: Array<Int>): Array<Int> {
     }
 
     return bubbleSortAlgorithm(newArray);
+}
+
+fun sortedSquaredMethod2(array: Array<Int>): Array<Int> {
+    var newArray = arrayOf<Int>();
+
+    var leftPointer = 0;
+    var rightPointer = array.size - 1;
+
+    for (i in 0 until array.size) {
+        val squaredLeft = (array[leftPointer].toDouble().pow(2)).toInt();
+        val squaredRight = (array[rightPointer].toDouble().pow(2)).toInt();
+
+        if (squaredLeft < squaredRight) {
+            newArray += squaredLeft;
+            leftPointer += 1;
+        } else {
+            newArray += squaredRight;
+            rightPointer -= 1;
+        }
+    }
+
+    return newArray;
 }
 
 fun bubbleSortAlgorithm(array: Array<Int>): Array<Int> {
