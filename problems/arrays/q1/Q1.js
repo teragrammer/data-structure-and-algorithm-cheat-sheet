@@ -8,43 +8,43 @@
  */
 
 function sortedSquarredArrayMethod1(array) {
-  const newArray = new Array(array.length).fill(0)
+  const NEW_ARRAY = new Array(array.length).fill(0)
 
   for (let i = 0; i < array.length; i++) {
-    newArray[i] = array[i] ** 2
+    NEW_ARRAY[i] = array[i] ** 2
   }
 
-  return bubbleSortAlgorithm(newArray)
+  return bubbleSortAlgorithm(NEW_ARRAY)
 }
 
 
 function sortedSquarredArrayMethod2(array) {
-  const newArray = new Array(array.length).fill(0)
+  const NEW_ARRAY = new Array(array.length).fill(0)
 
   let pointerLeft = 0
   let pointerRight = array.length - 1
 
   for (let i = 0; i < array.length; i++) {
-    const leftSquared = Math.pow(array[pointerLeft], 2)
-    const rightSquared = Math.pow(array[pointerRight], 2)
+    const LEFT_SQUARED = Math.pow(array[pointerLeft], 2)
+    const RIGHT_SQUARED = Math.pow(array[pointerRight], 2)
 
-    if (leftSquared < rightSquared) {
-      newArray[i] = leftSquared
+    if (LEFT_SQUARED < RIGHT_SQUARED) {
+      NEW_ARRAY[i] = LEFT_SQUARED
       pointerLeft++
     } else {
-      newArray[i] = rightSquared
+      NEW_ARRAY[i] = RIGHT_SQUARED
       pointerRight--
     }
   }
 
-  return newArray
+  return NEW_ARRAY
 }
 
 function bubbleSortAlgorithm(array) {
-  const size = array.length
+  const SIZE = array.length
 
-  for (let i = 0; i < size - 1; i++) {
-    for (let j = 0; j < size - i - 1; j++) {
+  for (let i = 0; i < SIZE - 1; i++) {
+    for (let j = 0; j < SIZE - i - 1; j++) {
       if (array[j] > array[j + 1]) {
         const temp = array[j]
         array[j] = array[j + 1]
@@ -56,7 +56,7 @@ function bubbleSortAlgorithm(array) {
   return array
 }
 
-const array = [5, 4, 3, 2, 1, 0]
+const SORTED_ARRAY = [5, 4, 3, 2, 1, 0]
 
-console.log(sortedSquarredArrayMethod1(array))
-console.log(sortedSquarredArrayMethod2(array))
+console.log(sortedSquarredArrayMethod1(SORTED_ARRAY))
+console.log(sortedSquarredArrayMethod2(SORTED_ARRAY))
