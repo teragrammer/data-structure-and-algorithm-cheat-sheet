@@ -17,7 +17,7 @@ impl SortingStruct {
             new_arr.push(element.pow(2));
         }
 
-        new_arr.sort();
+        new_arr = SortingStruct::bubble_sort_algorithm(&mut new_arr);
         new_arr
     }
 
@@ -44,6 +44,22 @@ impl SortingStruct {
 
         new_arr
     }
+
+    fn bubble_sort_algorithm(arr: &mut [i32]) -> Vec<i32> {
+        let size = arr.len();
+
+        for i in 0..size - 1 {
+            for j in 0..size - i - 1 {
+                if arr[j] > arr[j + 1] {
+                    let temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+
+        return arr.to_vec()
+    }
 }
 
 fn main() {
@@ -53,5 +69,5 @@ fn main() {
     let output2 = SortingStruct::sorted_squarred_array_method2(&arr);
 
     println!("{:?}", output1);
-    println!("{:?}", output2)
+    println!("{:?}", output2);
 }
