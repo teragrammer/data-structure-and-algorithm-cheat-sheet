@@ -13,8 +13,7 @@ def sorted_squared_method_1(array):
     for i in range(len(array)):
         new_array[i] = array[i] ** 2
 
-    new_array.sort()
-    return new_array
+    return bubble_sort_algorithm(new_array)
 
 def sorted_squared_method_2(array):
     new_array = [0] * len(array)
@@ -35,5 +34,19 @@ def sorted_squared_method_2(array):
 
     return new_array
 
-print(sorted_squared_method_1([5, 4, 3, 2, 1, 0]))
-print(sorted_squared_method_2([5, 4, 3, 2, 1, 0]))
+def bubble_sort_algorithm(array):
+    size = len(array)
+
+    for i in range(size - 1):
+        for j in range(size - i -1):
+            if array[j] > array[j + 1]:
+                temp = array[j]
+                array[j] = array[j + 1]
+                array[j + 1] = temp
+    
+    return array
+
+array = [5, 4, 3, 2, 1, 0]
+
+print(sorted_squared_method_1(array))
+print(sorted_squared_method_2(array))
