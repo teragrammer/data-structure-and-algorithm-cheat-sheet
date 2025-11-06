@@ -1,0 +1,15 @@
+/workspace/problems/arrays/q2/c_sharp/bin/Debug/net8.0/c_sharp
+/workspace/problems/arrays/q2/c_sharp/bin/Debug/net8.0/c_sharp.deps.json
+/workspace/problems/arrays/q2/c_sharp/bin/Debug/net8.0/c_sharp.runtimeconfig.json
+/workspace/problems/arrays/q2/c_sharp/bin/Debug/net8.0/c_sharp.dll
+/workspace/problems/arrays/q2/c_sharp/bin/Debug/net8.0/c_sharp.pdb
+/workspace/problems/arrays/q2/c_sharp/obj/Debug/net8.0/c_sharp.GeneratedMSBuildEditorConfig.editorconfig
+/workspace/problems/arrays/q2/c_sharp/obj/Debug/net8.0/c_sharp.AssemblyInfoInputs.cache
+/workspace/problems/arrays/q2/c_sharp/obj/Debug/net8.0/c_sharp.AssemblyInfo.cs
+/workspace/problems/arrays/q2/c_sharp/obj/Debug/net8.0/c_sharp.csproj.CoreCompileInputs.cache
+/workspace/problems/arrays/q2/c_sharp/obj/Debug/net8.0/c_sharp.sourcelink.json
+/workspace/problems/arrays/q2/c_sharp/obj/Debug/net8.0/c_sharp.dll
+/workspace/problems/arrays/q2/c_sharp/obj/Debug/net8.0/refint/c_sharp.dll
+/workspace/problems/arrays/q2/c_sharp/obj/Debug/net8.0/c_sharp.pdb
+/workspace/problems/arrays/q2/c_sharp/obj/Debug/net8.0/c_sharp.genruntimeconfig.cache
+/workspace/problems/arrays/q2/c_sharp/obj/Debug/net8.0/ref/c_sharp.dll
