@@ -66,6 +66,10 @@ $ java -jar File.jar
 $ dart run File.dart
 $ dart compile exe File.dart
 ```
+- C++
+```
+$ clear && c++ File.cpp -o Q1 && ./File && rm File
+```
 
 ### Hire Me
 ```
