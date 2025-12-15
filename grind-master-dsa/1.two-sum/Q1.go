@@ -4,6 +4,12 @@ import (
 	"fmt"
 )
 
+/*
+* Given an array of integers nums and an integer target, 
+* return indices of the two numbers such that 
+* they add up to target.
+*/
+
 func twoSumMethod1(nums []int, target int) []int {
 	var indices = []int{-1, -1}
 	var size = len(nums)
