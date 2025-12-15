@@ -70,6 +70,16 @@ $ dart compile exe File.dart
 ```
 $ clear && c++ File.cpp -o Q1 && ./File && rm File
 ```
+- Rust
+```
+$ rustc File.rs
+$ ./File
+```
+- Swift
+```
+$ swiftc File.swift -o File
+$ ./File
+```
 
 ### Hire Me
 ```
