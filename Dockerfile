@@ -6,13 +6,13 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Update package list and install dependencies for multiple languages
 RUN apt-get update && apt-get install -y \
-    software-properties-common curl wget nano gnupg2 lsb-release apt-transport-https ca-certificates libncurses6
+    software-properties-common curl wget nano gnupg2 lsb-release apt-transport-https ca-certificates libncurses6 dirmngr
 
 # Install R
-# Add CRAN repository for the latest R version
-RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -c | awk '{print $2}')-cran40/" | tee -a /etc/apt/sources.list
-# Add the key for the CRAN repository
-RUN curl -fsSL https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# add the signing key (by Michael Rutter) for these repos
+RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# add the repo from CRAN -- lsb_release adjusts to 'noble' or 'jammy' or ... as needed
+RUN add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
 # Update the package list and install R
 RUN apt-get update && apt-get install -y r-base
 
@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y r-base
 RUN apt-get install -y python3 python3-pip python3-venv \
 # Install PHP
     && add-apt-repository ppa:ondrej/php && \
-    apt install php8.4 php8.4-cli php8.4-common php8.4-fpm php8.4-mysql php8.4-xml php8.4-gd php8.4-mbstring php8.4-zip php8.4-bcmath  php8.4-curl -y \
+    apt install php8.5 php8.5-cli php8.5-common php8.5-fpm php8.5-mysql php8.5-xml php8.5-gd php8.5-mbstring php8.5-zip php8.5-bcmath  php8.5-curl -y \
 # Install Node.js (latest LTS via NodeSource)
     && apt-get install -y nodejs \
 # Install Swift (official binary latest stable)
